@@ -31,18 +31,16 @@ body{
 
 .aurora{
   position:fixed;
-  inset:-35vh -10vw -35vh -10vw;
+  inset:0;
   pointer-events:none;
-  filter: blur(18px) saturate(1.2);
-  opacity:.9;
+  filter: blur(18px) saturate(1.15);
+  opacity:.8;
   background:
     radial-gradient(60% 90% at 30% 60%, rgba(103,215,255,.22), transparent 55%),
     radial-gradient(55% 85% at 60% 55%, rgba(25,167,255,.20), transparent 58%),
     radial-gradient(60% 80% at 85% 45%, rgba(191,244,255,.18), transparent 62%);
-  transform: skewY(-8deg);
-  animation: drift 12s ease-in-out infinite;
-  transform: translateZ(0) skewY(-8deg);
-  will-change: transform;
+  transform: translateZ(0);
+  will-change: opacity;
 }
 @keyframes drift{
   0%,100%{transform:translateY(0) skewY(-8deg)}
@@ -56,15 +54,16 @@ body{
   overflow:hidden;
   /* Avoid blend-mode seams on some GPUs/browsers */
   mix-blend-mode: normal;
-  opacity:.55;
+  opacity:.65;
   transform: translateZ(0);
   will-change: transform;
 }
-.snow:before{
+.snow:before,
+.snow:after{
   content:"";
   position:absolute;
-  left:0; right:0; top:-60%;
-  height:220%;
+  left:0; right:0; top:-100%;
+  height:200%;
   background-image:
     radial-gradient(circle at 20% 30%, rgba(191,244,255,.12) 0 2px, transparent 3px),
     radial-gradient(circle at 75% 20%, rgba(191,244,255,.10) 0 1px, transparent 2px),
@@ -75,11 +74,20 @@ body{
   background-repeat: repeat;
   transform: translate3d(0, 0, 0);
   will-change: transform;
-  animation: snowMove 16s linear infinite;
+  animation: snowMoveA 18s linear infinite;
 }
-@keyframes snowMove{
+.snow:after{
+  opacity:.75;
+  filter: blur(.2px);
+  animation: snowMoveB 24s linear infinite;
+}
+@keyframes snowMoveA{
   from{transform: translate3d(0, 0, 0)}
-  to{transform: translate3d(0, 30%, 0)}
+  to{transform: translate3d(0, 50%, 0)}
+}
+@keyframes snowMoveB{
+  from{transform: translate3d(0, -50%, 0)}
+  to{transform: translate3d(0, 0, 0)}
 }
 
 .wrap{
