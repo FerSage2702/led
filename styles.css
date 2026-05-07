@@ -82,7 +82,22 @@ header{
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   background: linear-gradient(180deg, rgba(3,10,18,.78), rgba(3,10,18,.35));
-  border-bottom: 1px solid rgba(191,244,255,.10);
+  /* Prevent scroll seam artifacts (sticky + blur). */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 1px 0 rgba(191,244,255,.10);
+  border-bottom: none;
+  isolation: isolate;
+}
+header:after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-18px;
+  height:18px;
+  background: linear-gradient(180deg, rgba(3,10,18,.20), transparent);
+  pointer-events:none;
 }
 .nav{
   width:min(1100px, calc(100% - 40px));
