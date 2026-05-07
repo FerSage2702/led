@@ -21,11 +21,8 @@ body{
   margin:0;
   color:var(--text);
   font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-  background:
-    radial-gradient(1200px 700px at 12% 10%, rgba(103,215,255,.20), transparent 55%),
-    radial-gradient(900px 600px at 82% 20%, rgba(25,167,255,.18), transparent 60%),
-    radial-gradient(700px 500px at 50% 95%, rgba(191,244,255,.10), transparent 60%),
-    linear-gradient(180deg, var(--bg0), var(--bg1));
+  /* Uniform background to avoid visible shade seams */
+  background: var(--bg0);
   overflow-x:hidden;
 }
 
@@ -35,11 +32,9 @@ body{
   pointer-events:none;
   /* Hard mode: no blur/filter to avoid scroll seams */
   filter: none;
-  opacity:.55;
-  background:
-    radial-gradient(60% 90% at 30% 60%, rgba(103,215,255,.22), transparent 55%),
-    radial-gradient(55% 85% at 60% 55%, rgba(25,167,255,.20), transparent 58%),
-    radial-gradient(60% 80% at 85% 45%, rgba(191,244,255,.18), transparent 62%);
+  /* Keep aurora disabled to ensure perfectly uniform tone */
+  opacity:0;
+  background:none;
   transform: translateZ(0);
   will-change: opacity;
 }
@@ -54,7 +49,7 @@ body{
   pointer-events:none;
   overflow:hidden;
   mix-blend-mode: normal;
-  opacity:.70;
+  opacity:.35;
   transform: translateZ(0);
   will-change: transform;
 }
