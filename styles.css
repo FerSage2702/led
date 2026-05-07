@@ -41,9 +41,8 @@ body{
     radial-gradient(60% 80% at 85% 45%, rgba(191,244,255,.18), transparent 62%);
   transform: skewY(-8deg);
   animation: drift 12s ease-in-out infinite;
-  /* Fade edges to avoid visible seam line */
-  -webkit-mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
-  mask-image: linear-gradient(180deg, transparent, #000 20%, #000 80%, transparent);
+  transform: translateZ(0) skewY(-8deg);
+  will-change: transform;
 }
 @keyframes drift{
   0%,100%{transform:translateY(0) skewY(-8deg)}
@@ -55,8 +54,9 @@ body{
   inset:0;
   pointer-events:none;
   overflow:hidden;
-  mix-blend-mode: screen;
-  opacity:.75;
+  /* Avoid blend-mode seams on some GPUs/browsers */
+  mix-blend-mode: normal;
+  opacity:.55;
   transform: translateZ(0);
   will-change: transform;
 }
