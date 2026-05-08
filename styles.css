@@ -23,13 +23,18 @@ body{
   font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
   /* Uniform background to avoid visible shade seams */
   background-color: var(--bg0);
+  background-image: none;
+  overflow-x:hidden;
+}
+
+/* Main page background GIF (do not use on upgrade page) */
+body.home{
   background-image:
     linear-gradient(180deg, rgba(3,10,18,.78), rgba(3,10,18,.92)),
     url("lsyBOX8TTvo6jJkT.gif");
   background-repeat: no-repeat, no-repeat;
   background-position: center top, center top;
   background-size: cover, cover;
-  overflow-x:hidden;
 }
 
 .aurora{
