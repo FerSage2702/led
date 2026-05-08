@@ -22,7 +22,13 @@ body{
   color:var(--text);
   font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
   /* Uniform background to avoid visible shade seams */
-  background: var(--bg0);
+  background-color: var(--bg0);
+  background-image:
+    linear-gradient(180deg, rgba(3,10,18,.78), rgba(3,10,18,.92)),
+    url("lsyBOX8TTvo6jJkT.gif");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center top;
+  background-size: cover, cover;
   overflow-x:hidden;
 }
 
@@ -338,23 +344,6 @@ h1{
   font-size: 12px;
   text-align:center;
   padding: 18px 0 10px;
-}
-
-/* Main page center GIF */
-.center-gif{
-  margin-top: 18px;
-  display:flex;
-  justify-content:center;
-  padding: 6px 0 0;
-}
-.center-gif-img{
-  width: min(560px, 100%);
-  height: auto;
-  display:block;
-  border-radius: var(--radius);
-  border: 1px solid rgba(191,244,255,.14);
-  background: rgba(255,255,255,.03);
-  box-shadow: 0 14px 44px rgba(0,0,0,.40);
 }
 
 /* Upgrade page */
