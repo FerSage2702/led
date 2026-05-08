@@ -143,26 +143,14 @@ header:after{
 .brand-mark{
   width:40px;height:40px;
   border-radius:14px;
-  background:
-    radial-gradient(120% 120% at 30% 25%, rgba(191,244,255,.95), rgba(103,215,255,.45) 35%, rgba(25,167,255,.15) 65%, rgba(255,255,255,.06));
+  display:block;
+  object-fit: cover;
+  background: rgba(255,255,255,.06);
   box-shadow: 0 0 0 1px rgba(191,244,255,.20), 0 14px 35px rgba(25,167,255,.18);
   position:relative;
   overflow:hidden;
 }
-.brand-mark:after{
-  content:"";
-  position:absolute;
-  inset:-20%;
-  background: linear-gradient(110deg, transparent 25%, rgba(255,255,255,.20), transparent 60%);
-  transform: translateX(-35%) rotate(18deg);
-  animation: sheen 5.2s ease-in-out infinite;
-}
-@keyframes sheen{
-  0%,55%{transform: translateX(-45%) rotate(18deg); opacity:.0}
-  65%{opacity:.55}
-  90%{transform: translateX(45%) rotate(18deg); opacity:.0}
-  100%{opacity:0}
-}
+.brand-mark{image-rendering:auto}
 .brand-title{
   font-weight: 700;
   letter-spacing:.2px;
@@ -350,6 +338,23 @@ h1{
   font-size: 12px;
   text-align:center;
   padding: 18px 0 10px;
+}
+
+/* Main page center GIF */
+.center-gif{
+  margin-top: 18px;
+  display:flex;
+  justify-content:center;
+  padding: 6px 0 0;
+}
+.center-gif-img{
+  width: min(560px, 100%);
+  height: auto;
+  display:block;
+  border-radius: var(--radius);
+  border: 1px solid rgba(191,244,255,.14);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 14px 44px rgba(0,0,0,.40);
 }
 
 /* Upgrade page */
